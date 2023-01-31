@@ -39,4 +39,5 @@ route.post('/borrow', controller.borrow)
 route.get('/view-borrowed', controller.get_borrows)
 
 route.get('/borrowed-stats', controller.borrowStats)
+
 export default route
