@@ -18,25 +18,30 @@ const transaction = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    product:
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "Product",
-      },
-    payment:{
-        type: String,
-        required: true,
-        toUpperCase: true
+    total: {
+      type: Number,
+      required: true,
     },
-    unit:{
-        type: String,
-        required: true,
-    },
-    employer:{
+    // product:
+    //   {
+    //     type: mongoose.Types.ObjectId,
+    //     ref: "Product",
+    //   },
+    payment: {
       type: String,
       required: true,
-    }
+      toUpperCase: true,
+    },
+    unit: {
+      type: String,
+      required: true,
+    },
+    employer: {
+      type: String,
+      required: true,
+    },
   },
-  { timestamps:true});
+  { timestamps: true }
+)
 
 export const Transaction = mongoose.model('Transaction', transaction)

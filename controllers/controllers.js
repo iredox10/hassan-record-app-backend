@@ -148,11 +148,14 @@ export const todayStats = async (req,res,next) =>{
 // I just want it to be returning only for today's transactions
 export const yesterdayStats = async (req,res,next) =>{
     const date = new Date()
-    const yesterday = new Date(date.setDate(date.getDate() -2))
+    const tommorrow = new Date(date.setDate(date.getDate() +1))
+// db.sales.find({
+//   date: { $gte: new Date("2014-04-04"), $lt: new Date("2014-04-05") },
+// })
     const today = new Date()
 
-    try {
-        const yesterdayProducts = await Transaction.find({createdAt:{$gt:yesterday,$lt:today}})
+    try {yesterday
+        const yesterdayProducts = await Transaction.find({createdAt:{$gt:new Date(),$lt:tommorrow}})
 
         // const total =  await Transaction.aggregate([
         //     {'$match':{createdAt:{'$gt': yesterday}}},
@@ -167,7 +170,7 @@ export const yesterdayStats = async (req,res,next) =>{
         // {$sort: {total:-1}}
         // ]) 
         // res.json({today,yesterday,date})
-        res.json({date,yesterday,today,yesterdayProducts})
+        res.json({yesterdayProducts})
     } catch (err) {
         res.json(err)
     }

@@ -67,3 +67,15 @@ export const users = async (req,res,next) =>{
         res.json(err)
     }
 }
+
+export const change_password = async (req,res,next) =>{
+    try {
+        const user = await User.findByIdAndUpdate(req.paras.id,{$set:{
+            username: req.body.username,
+            password: req.body.password
+        }})
+        res.json(user)
+    } catch (err) {
+        
+    }
+}
