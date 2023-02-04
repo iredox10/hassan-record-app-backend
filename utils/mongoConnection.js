@@ -2,9 +2,8 @@ import mongoose from 'mongoose'
 
 const mongoConnection = async () => {
     try{
-       const mongo = await mongoose.connect(
-         process.env.MONGO_URL_LOCAL || process.env.MONGO_RAILWAY_URL,
-         { useNewUrlParser: true }
+      const mongo = await mongoose.connect(
+        process.env.MONGO_RAILWAY_URL
        )
        console.log('connect to mongo db')
     }catch(err){
