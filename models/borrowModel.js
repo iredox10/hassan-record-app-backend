@@ -16,6 +16,10 @@ const borrowSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    paid: {
+        type: Boolean,
+        default:false
+    }
 },{timestamps: true})
 
 export const Borrow = mongoose.model('borrow',borrowSchema)

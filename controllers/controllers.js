@@ -278,6 +278,25 @@ export const get_borrows = async (req,res,next) =>{
         res.json(err)
     }
 }
+export const get_borrow = async (req,res,next) =>{
+    try{
+        const borrow = await Borrow.findById(req.params.id)
+        res.json(borrow)
+    }catch(err){
+        res.json(err)
+    }
+}
+
+export const check_borrow = async (req,res,next) =>{
+    try{
+        const borrower = await Borrow.findByIdAndUpdate(req.params.id,{paid:req.body.paid},
+            {new:true})
+        res.json(borrower)
+    }catch(err){
+        res.json(err)
+    }
+}
+
 
 export const borrowStats = async (req,res,next) =>{
     const date = new Date()

@@ -36,7 +36,11 @@ route.get('/yesterday-stats', controller.yesterdayStats)
 
 route.post('/borrow', controller.borrow)
 
+route.patch('/check-borrow/:id', controller.check_borrow)
+
 route.get('/view-borrowed', controller.get_borrows)
+
+route.get('/view-borrow/:id', controller.get_borrow)
 
 route.get('/borrowed-stats', controller.borrowStats)
 
